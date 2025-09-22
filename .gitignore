@@ -1,3 +1,12 @@
 .vscode/
 a.out
 *.o
+*.out
+*.exe
+*.log
+*.dat
+*.tar.gz
+*.zip
+*.tar
+
+img/

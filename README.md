@@ -48,14 +48,14 @@ since both may have to be very large to get a reasonable estimate of π.
 
 Voy a explicar cómo resolvería este ejercicio paso a paso:
 
-## **Lógica del Algoritmo de Suma en Árbol**
+### **Lógica del Algoritmo de Suma en Árbol**
 
-### **Concepto Base:**
+#### **Concepto Base:**
 - Cada proceso tiene un valor local
 - Los procesos se organizan en una estructura jerárquica (árbol binario)
 - La suma se propaga desde las hojas hacia la raíz
 
-### **Para comm_sz = potencia de 2:**
+#### **Para comm_sz = potencia de 2:**
 ```
 Proceso 0 (raíz)
      /       \
@@ -64,9 +64,9 @@ Proceso 1   Proceso 2
 P3     P4   P5     P6
 ```
 
-## **Flujo de Trabajo Detallado**
+### **Flujo de Trabajo Detallado**
 
-### **Fase 1: Versión para Potencia de 2**
+#### **Fase 1: Versión para Potencia de 2**
 
 **1. Inicialización:**
 ```c
@@ -94,7 +94,7 @@ for nivel desde 0 hasta niveles-1:
 - **Paso 3:** Proceso 1 envía a 0
 - **Resultado:** Proceso 0 tiene la suma total
 
-### **Fase 2: Extensión para Cualquier comm_sz**
+#### **Fase 2: Extensión para Cualquier comm_sz**
 
 **Modificaciones Necesarias:**
 
@@ -116,9 +116,9 @@ else:
 - Los procesos "extra" se conectan al proceso 0 o a sus hijos
 - Mantener balance lo mejor posible
 
-## **Implementación Paso a Paso**
+### **Implementación Paso a Paso**
 
-### **Pseudocódigo Completado:**
+#### **Pseudocódigo Completado:**
 
 ```c
 int main(int argc, char* argv[]) {
@@ -174,17 +174,21 @@ int main(int argc, char* argv[]) {
 }
 ```
 
-## **Estrategia de Pruebas**
+### **Estrategia de Pruebas**
 
 1. **Caso Simple:** comm_sz = 4 (potencia de 2)
 2. **Caso General:** comm_sz = 6, 10, etc.
 3. **Validación:** Comparar con suma secuencial
 4. **Verificación:** Logs de comunicación entre procesos
 
-## **Ventajas de Este Enfoque**
+### **Ventajas de Este Enfoque**
 
 - **Eficiencia:** Complejidad O(log n) vs O(n) de enfoque lineal
 - **Escalabilidad:** Funciona para cualquier número de procesos
 - **Modularidad:** Fácil de extender para otras operaciones (producto, máximo, etc.)
 
+
+## Ejercicio 4
+
+Escriba un programa MPI que calcule una suma global usando un patrón "mariposa" (butterfly). Primero escriba su programa para el caso especial en que el tamaño del comunicador (comn_sz) es una potencia de dos. ¿Puede modificar su programa para que maneje cualquier número de procesos?
 
